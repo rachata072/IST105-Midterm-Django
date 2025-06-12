@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculation Result</title>
+</head>
+<body>
+    <h1>Calculation Result</h1>
+    {% if error %}
+        <p>{{ error }}</p>
+    {% else %}
+        <p>Result of {{ num1 }} {{ operation_symbol }} {{ num2 }} is {{ final_result }}</p>
+        {% if raw_result != final_result %}
+            <p>Raw result was {{ raw_result }}</p>
+        {% endif %}
+    {% endif %}
+    <a href="{% url 'calculate' %}">Calculate Again</a>
+</body>
+</html> 
