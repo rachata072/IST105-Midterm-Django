@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculation Result</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .container { max-width: 500px; margin: 0 auto; }
+        .result { margin: 20px 0; padding: 10px; background: #f8f9fa; }
+        .error { color: red; }
+        .success { color: green; }
+        .button { padding: 10px 20px; background: #007bff; color: white; text-decoration: none; display: inline-block; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Calculation Result</h2>
+        {% if error %}
+            <div class="error">{{ error }}</div>
+        {% else %}
+            <div class="result">
+                <p class="success">Result of {{ input1 }} {{ operation }} {{ input2 }} is {{ final_result }}</p>
+                {% if raw_result != final_result %}
+                    <p><small>Raw result was {{ raw_result }}</small></p>
+                {% endif %}
+            </div>
+        {% endif %}
+        <a href="{% url 'calculator:calculate' %}" class="button">Calculate Again</a>
+    </div>
+</body>
+</html> 
